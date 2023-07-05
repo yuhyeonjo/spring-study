@@ -3,6 +3,7 @@ package hello.hellospring.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // == table
+@ToString(exclude = {"orderGroup"})
 public class User {
 
 
@@ -34,7 +36,7 @@ public class User {
     private LocalDateTime updatedAt;
     private String updatedBy;
 
-//    // 1 : N
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-//    private List<OrderDetail> orderDetailList;
+    // User 1 : N OrderGroup
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<OrderGroup> orderGroupList;
 }
