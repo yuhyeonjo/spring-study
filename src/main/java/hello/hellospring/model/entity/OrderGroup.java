@@ -3,38 +3,35 @@ package hello.hellospring.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity // order_detail
-//@ToString(exclude = {"user", "item"})
-public class OrderDetail {
+@Entity
+public class OrderGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime orderAt;
     private String status;
-    private LocalDateTime arrivalDate;
-    private Integer quantity;
+    private String orderType; // 주문 형태 : 일괄 / 개별
+    private String revAddress;
+    private String revName;
+    private String paymentType;
     private BigDecimal totalPrice;
+    private Integer totalQuantity;
+    private LocalDateTime orderAt;
+    private LocalDateTime arrivalDate;
     private LocalDateTime createdAt;
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
-
-//    // N : 1
-//    @ManyToOne
-//    private User user;
-//
-//    // N : 1
-//    @ManyToOne
-//    private Item item;
 }
