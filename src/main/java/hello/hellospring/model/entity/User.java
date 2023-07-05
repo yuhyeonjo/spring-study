@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 // DB의 테이블명과 동일하게 class명 생성 = @Table(name = "user")
 @Data
