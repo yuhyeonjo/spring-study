@@ -18,9 +18,9 @@ public class OrderDetailRepositoryTest extends HelloSpringApplicationTests {
     public void create(){
 
         OrderDetail orderDetail = new OrderDetail();
-        orderDetail.setItemId(1L);
-        orderDetail.setUserId(1L);
-        orderDetail.setOrderAt(LocalDateTime.now());
+//        orderDetail.setItemId(1L);
+//        orderDetail.setUserId(1L);
+//        orderDetail.setOrderAt(LocalDateTime.now());
         OrderDetail newOrderDeatil = orderDetailRepository.save(orderDetail);
         Assertions.assertNotNull(newOrderDeatil);
     }

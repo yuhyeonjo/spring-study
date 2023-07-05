@@ -1,6 +1,7 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.HelloSpringApplicationTests;
+import hello.hellospring.model.entity.Item;
 import hello.hellospring.model.entity.User;
 import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Assertions;
@@ -32,12 +33,17 @@ public class UserRepositoryTest extends HelloSpringApplicationTests {
     }
 
     @Test
+    //@Transactional
     public void read() {
-        Optional<User> user = userRepository.findById(2L);
+
+        // select * from user where id = ?
+        Optional<User> user = userRepository.findByAccount("TestUser03");
 
         user.ifPresent(selectUser -> {
-            System.out.println("user : " + selectUser);
-            System.out.println("email : " + selectUser.getEmail() );
+            selectUser.getOrderDetailList().stream().forEach(detail -> {
+                Item item = detail.getItem();
+                System.out.println(item.getName());
+            });
         });
     }
 

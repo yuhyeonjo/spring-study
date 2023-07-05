@@ -3,6 +3,7 @@ package hello.hellospring.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -28,4 +29,8 @@ public class User {
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
+
+    // 1 : N
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<OrderDetail> orderDetailList;
 }
