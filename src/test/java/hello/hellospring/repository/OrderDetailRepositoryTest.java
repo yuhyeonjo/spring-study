@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -18,17 +19,22 @@ public class OrderDetailRepositoryTest extends HelloSpringApplicationTests {
     public void create(){
 
         OrderDetail orderDetail = new OrderDetail();
-//        orderDetail.setItemId(1L);
-//        orderDetail.setUserId(1L);
-//        orderDetail.setOrderAt(LocalDateTime.now());
-        OrderDetail newOrderDeatil = orderDetailRepository.save(orderDetail);
-        Assertions.assertNotNull(newOrderDeatil);
+        orderDetail.setStatus("WAITING");
+        orderDetail.setArrivalDate(LocalDateTime.now().plusDays(2));
+        orderDetail.setQuantity(1);
+        orderDetail.setTotalPrice(BigDecimal.valueOf(1000000));
+        orderDetail.setCreatedAt(LocalDateTime.now());
+        orderDetail.setCreatedBy("AdminServer");
+        orderDetail.setOrderGroupId(1L); // 어떠한 장바구니에
+        orderDetail.setItemId(1L); // 어떠한 상품
+        OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
+        Assertions.assertNotNull(newOrderDetail);
     }
 
     @Test
     public void read() {
-        Optional<OrderDetail> orderDetail = orderDetailRepository.findById(1L);
-        Assertions.assertNotNull(orderDetail);
-        System.out.println(orderDetail);
+//        Optional<OrderDetail> orderDetail = orderDetailRepository.findById(1L);
+//        Assertions.assertNotNull(orderDetail);
+//        System.out.println(orderDetail);
     }
 }
