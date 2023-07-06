@@ -1,9 +1,7 @@
 package hello.hellospring.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.Accessors;
 import org.hibernate.criterion.Order;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -22,6 +20,8 @@ import java.util.List;
 @Entity // == table
 @ToString(exclude = {"orderGroup"})
 @EntityListeners(AuditingEntityListener.class)
+@Builder
+@Accessors(chain = true)
 public class User {
 
 
