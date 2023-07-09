@@ -2,6 +2,7 @@ package hello.hellospring.controller;
 
 
 import hello.hellospring.model.SearchParam;
+import hello.hellospring.model.network.Header;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,5 +31,11 @@ public class GetController {
         // {"account" : "", "email" : "", "page" : 0}
 
         return searchParam;
+    }
+
+    @GetMapping("/header")
+    public Header getHeader() {
+        // {"resultCode: "OK", "description" : "OK" }
+        return Header.builder().resultCode("OK").description("OK").build();
     }
 }
