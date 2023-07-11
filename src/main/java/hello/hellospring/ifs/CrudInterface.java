@@ -1,14 +1,16 @@
 package hello.hellospring.ifs;
 
 import hello.hellospring.model.network.Header;
+import hello.hellospring.model.network.request.UserApiRequest;
+import hello.hellospring.model.network.response.UserApiResponse;
 
-public interface CrudInterface {
+public interface CrudInterface<Req, Res> {
     
-    Header create(); // todo request object 추가
+    Header<Res> create(Header<Req> request); // todo request object 추가
     
-    Header read(Long id);
+    Header<Res> read(Long id);
     
-    Header update();
+    Header<Res> update(Header<Req> request);
 
-    Header delete(Long id);
+    Header<Res> delete(Long id);
 }
