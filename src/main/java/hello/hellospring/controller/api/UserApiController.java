@@ -2,6 +2,7 @@ package hello.hellospring.controller.api;
 
 import hello.hellospring.controller.CrudController;
 import hello.hellospring.ifs.CrudInterface;
+import hello.hellospring.model.entity.User;
 import hello.hellospring.model.network.Header;
 import hello.hellospring.model.network.request.UserApiRequest;
 import hello.hellospring.model.network.response.UserApiResponse;
@@ -15,15 +16,15 @@ import javax.annotation.PostConstruct;
 @Slf4j // log.info 사용가능
 @RestController
 @RequestMapping("/api/user")
-public class UserApiController extends CrudController<UserApiRequest, UserApiResponse> {
+public class UserApiController extends CrudController<UserApiRequest, UserApiResponse, User> {
 
-    @Autowired
-    private UserApiLogicService userApiLogicService;
-
-    @PostConstruct
-    public void init() {
-        this.baseService = userApiLogicService;
-    }
+//    @Autowired
+//    private UserApiLogicService userApiLogicService;
+//
+//    @PostConstruct
+//    public void init() {
+//        this.baseService = userApiLogicService;
+//    }
 
 //    @Override
 //    @PostMapping("") // /api/user

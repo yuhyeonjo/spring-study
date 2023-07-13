@@ -2,6 +2,7 @@ package hello.hellospring.controller.api;
 
 import hello.hellospring.controller.CrudController;
 import hello.hellospring.ifs.CrudInterface;
+import hello.hellospring.model.entity.Item;
 import hello.hellospring.model.network.Header;
 import hello.hellospring.model.network.request.ItemApiRequest;
 import hello.hellospring.model.network.response.ItemApiResponse;
@@ -13,15 +14,15 @@ import javax.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("/api/item")
-public class ItemApiController extends CrudController<ItemApiRequest, ItemApiResponse> {
+public class ItemApiController extends CrudController<ItemApiRequest, ItemApiResponse, Item> {
 
-    @Autowired
-    private ItemApiLogicService itemApiLogicService;
-
-    @PostConstruct
-    public void init(){
-        this.baseService = itemApiLogicService;
-    }
+//    @Autowired
+//    private ItemApiLogicService itemApiLogicService;
+//
+//    @PostConstruct
+//    public void init(){
+//        this.baseService = itemApiLogicService;
+//    }
     // CRUD
 //    @Override
 //    @PostMapping("") // /api/item

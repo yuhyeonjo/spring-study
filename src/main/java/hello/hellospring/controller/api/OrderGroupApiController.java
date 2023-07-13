@@ -2,6 +2,7 @@ package hello.hellospring.controller.api;
 
 import hello.hellospring.controller.CrudController;
 import hello.hellospring.ifs.CrudInterface;
+import hello.hellospring.model.entity.OrderGroup;
 import hello.hellospring.model.network.Header;
 import hello.hellospring.model.network.request.OrderGroupApiRequest;
 import hello.hellospring.model.network.response.OrderGroupApiResponse;
@@ -13,15 +14,15 @@ import javax.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("/api/orderGroup")
-public class OrderGroupApiController extends CrudController<OrderGroupApiRequest, OrderGroupApiResponse> {
+public class OrderGroupApiController extends CrudController<OrderGroupApiRequest, OrderGroupApiResponse, OrderGroup> {
 
-    @Autowired
-    private OrderApiLogicService orderApiLogicService;
-
-    @PostConstruct
-    public void init() {
-        this.baseService = orderApiLogicService;
-    }
+//    @Autowired
+//    private OrderApiLogicService orderApiLogicService;
+//
+//    @PostConstruct
+//    public void init() {
+//        this.baseService = orderApiLogicService;
+//    }
 
 //    @Override
 //    @PostMapping("")
