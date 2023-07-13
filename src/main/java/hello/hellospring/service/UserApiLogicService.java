@@ -2,6 +2,7 @@ package hello.hellospring.service;
 
 import hello.hellospring.ifs.CrudInterface;
 import hello.hellospring.model.entity.User;
+import hello.hellospring.model.enumclass.UserStatus;
 import hello.hellospring.model.network.Header;
 import hello.hellospring.model.network.request.UserApiRequest;
 import hello.hellospring.model.network.response.UserApiResponse;
@@ -30,7 +31,7 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         User user = User.builder()
                 .account(userApiRequest.getAccount())
                 .password(userApiRequest.getPassword())
-                .status("REGISTERED")
+                .status(UserStatus.REGISTERED)
                 .phoneNumber(userApiRequest.getPhoneNumber())
                 .email(userApiRequest.getEmail())
                 .registeredAt(LocalDateTime.now())
@@ -89,6 +90,7 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         // repository - > delete
         optional.map(user -> {
             userRepository.delete(user);
+
             return Header.OK();
         }).orElseGet(() -> Header.ERROR("데이터 없음"));
 

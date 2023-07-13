@@ -1,5 +1,6 @@
 package hello.hellospring.model.entity;
 
+import hello.hellospring.model.enumclass.UserStatus;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.hibernate.criterion.Order;
@@ -32,7 +33,10 @@ public class User {
     // 동일한 컬럼명이면 생략가능 @Column(name = "account")
     private String account;
     private String password;
-    private String status;
+
+    @Enumerated(EnumType.STRING)
+    private UserStatus status; // REGISTERED / UNREGISTERED / WAITING
+
     private String email;
     private String phoneNumber;
     private LocalDateTime registeredAt;

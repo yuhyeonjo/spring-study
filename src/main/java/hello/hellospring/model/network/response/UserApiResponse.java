@@ -1,6 +1,7 @@
 package hello.hellospring.model.network.response;
 
 
+import hello.hellospring.model.enumclass.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class UserApiResponse {
     private Long id;
     private String account;
     private String password;
-    private String status;
+    private UserStatus status;
     private String email;
     private String phoneNumber;
     private LocalDateTime registeredAt;

@@ -2,6 +2,7 @@ package hello.hellospring.service;
 
 import hello.hellospring.ifs.CrudInterface;
 import hello.hellospring.model.entity.OrderGroup;
+import hello.hellospring.model.enumclass.OrderStatus;
 import hello.hellospring.model.network.Header;
 import hello.hellospring.model.network.request.OrderGroupApiRequest;
 import hello.hellospring.model.network.response.OrderGroupApiResponse;
@@ -26,7 +27,7 @@ public class OrderApiLogicService implements CrudInterface<OrderGroupApiRequest,
         OrderGroupApiRequest body = request.getData();
 
         OrderGroup orderGroup = OrderGroup.builder()
-                .status(body.getStatus())
+                .status(OrderStatus.PREPARE)
                 .orderType(body.getOrderType())
                 .revAddress(body.getRevAddress())
                 .revName(body.getRevName())

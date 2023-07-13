@@ -1,6 +1,9 @@
 package hello.hellospring.model.network.response;
 
 
+import hello.hellospring.model.enumclass.OrderStatus;
+import hello.hellospring.model.enumclass.OrderType;
+import hello.hellospring.model.enumclass.PaymentType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,11 +19,11 @@ import java.time.LocalDateTime;
 public class OrderGroupApiResponse {
 
     private Long id;
-    private String status;
-    private String orderType;
+    private OrderStatus status;
+    private OrderType orderType;
     private String revAddress;
     private String revName;
-    private String paymentType;
+    private PaymentType paymentType;
     private BigDecimal totalPrice;
     private Integer totalQuantity;
     private LocalDateTime orderAt;

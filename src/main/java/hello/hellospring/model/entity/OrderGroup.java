@@ -1,5 +1,8 @@
 package hello.hellospring.model.entity;
 
+import hello.hellospring.model.enumclass.OrderStatus;
+import hello.hellospring.model.enumclass.OrderType;
+import hello.hellospring.model.enumclass.PaymentType;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedBy;
@@ -27,11 +30,18 @@ public class OrderGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String status;
-    private String orderType; // 주문 형태 : 일괄 / 개별
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status; // 주문 상태 : 배송준비 / 배송중 / 배송완료
+
+    @Enumerated(EnumType.STRING)
+    private OrderType orderType; // 주문 형태 : 일괄 / 개별
+
     private String revAddress;
     private String revName;
-    private String paymentType;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType; // 카드 / 현금
+
     private BigDecimal totalPrice;
     private Integer totalQuantity;
     private LocalDateTime orderAt;
