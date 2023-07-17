@@ -17,11 +17,11 @@ public class OrderGroupRepositoryTest extends HelloSpringApplicationTests {
     @Test
     public void create() {
         OrderGroup orderGroup = new OrderGroup();
-        orderGroup.setStatus("COMPLETE");
-        orderGroup.setOrderType("ALL");
+//        orderGroup.setStatus("COMPLETE");
+//        orderGroup.setOrderType("ALL");
         orderGroup.setRevAddress("서울시 강남구");
         orderGroup.setRevName("Test01");
-        orderGroup.setPaymentType("CARD");
+//        orderGroup.setPaymentType("CARD");
         orderGroup.setTotalPrice(BigDecimal.valueOf(1000000));
         orderGroup.setTotalQuantity(1);
         orderGroup.setOrderAt(LocalDateTime.now().minusDays(2));

@@ -2,6 +2,7 @@ package hello.hellospring.repository;
 
 import hello.hellospring.HelloSpringApplicationTests;
 import hello.hellospring.model.entity.Item;
+import hello.hellospring.model.enumclass.ItemStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,11 @@ public class ItemRepositoryTest extends HelloSpringApplicationTests {
     @Test
     public void create() {
         Item item = new Item();
-        item.setStatus("UNREGISTERED");
+        item.setStatus(ItemStatus.REGISTERED);
         item.setName("삼성 노트북");
         item.setTitle("갤럭시북");
         item.setContent("2023년형 노트북");
-        item.setPrice(1000000);
+        // item.setPrice(1000000);
         item.setBrandName("Samsung");
         item.setRegisteredAt(LocalDateTime.now());
         item.setCreatedAt(LocalDateTime.now());

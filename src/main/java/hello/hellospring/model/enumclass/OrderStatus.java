@@ -7,9 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum OrderStatus {
 
-    PREPARE(0, "준비", "배송준비"),
-    DELIVERING(1, "배송중", "배송중"),
-    COMPLETE(2, "완료", "배송완료");
+    ORDERING(0, "준비", "배송준비"),
+    CONFIRM(1, "확인", "확인중"),
+    DELIVERING(2, "배송중", "배송중"),
+    COMPLETE(3, "완료", "배송완료");
 
     private Integer id;
     private String title;

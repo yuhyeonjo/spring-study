@@ -27,7 +27,7 @@ public class OrderApiLogicService extends BaseService<OrderGroupApiRequest, Orde
         OrderGroupApiRequest body = request.getData();
 
         OrderGroup orderGroup = OrderGroup.builder()
-                .status(OrderStatus.PREPARE)
+                .status(OrderStatus.ORDERING)
                 .orderType(body.getOrderType())
                 .revAddress(body.getRevAddress())
                 .revName(body.getRevName())

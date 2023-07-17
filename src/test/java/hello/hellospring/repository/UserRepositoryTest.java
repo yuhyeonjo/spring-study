@@ -3,6 +3,7 @@ package hello.hellospring.repository;
 import hello.hellospring.HelloSpringApplicationTests;
 import hello.hellospring.model.entity.Item;
 import hello.hellospring.model.entity.User;
+import hello.hellospring.model.enumclass.UserStatus;
 import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class UserRepositoryTest extends HelloSpringApplicationTests {
 
         String account = "Test03";
         String password = "Test03";
-        String status = "REGISTERED";
+        UserStatus status = UserStatus.REGISTERED;
         String email = "Test03@gmail.com";
         String phoneNumber = "010-1111-3333";
         LocalDateTime registeredAt = LocalDateTime.now();
