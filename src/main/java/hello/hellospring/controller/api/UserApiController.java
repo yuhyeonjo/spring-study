@@ -6,6 +6,7 @@ import hello.hellospring.model.entity.User;
 import hello.hellospring.model.network.Header;
 import hello.hellospring.model.network.request.UserApiRequest;
 import hello.hellospring.model.network.response.UserApiResponse;
+import hello.hellospring.model.network.response.UserOrderInfoApiResponse;
 import hello.hellospring.service.UserApiLogicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class UserApiController implements CrudInterface<UserApiRequest, UserApiR
 
     @Autowired
     private UserApiLogicService userApiLogicService;
+
+    @GetMapping("/{id}/orderInfo")
+    public Header<UserOrderInfoApiResponse> orderInfo(@PathVariable Long id) {
+        return userApiLogicService.orderInfo(id);
+    }
 
 
 //    @PostConstruct
